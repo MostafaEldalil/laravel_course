@@ -20,7 +20,7 @@ class PostController extends Controller
 
     public function show($postId)
     {
-        $post = ['id' => 1, 'title' => 'laravel', 'description' => 'laravel is awsome framework', 'posted_by' => 'Ahmed', 'created_at' => '2021-03-20'];
+        $post = ['id' => 1, 'title' => 'laravel', 'description' => 'laravel is awsome framework', 'posted_by' => 'Mostafa', 'email' => 'mostafa@gmail.com', 'created_at' => '2021-03-20'];
         return view('posts.show', [
             'post' => $post,
         ]);
@@ -34,5 +34,10 @@ class PostController extends Controller
     public function store()
     {
         return redirect()->route('posts.index');
+    }
+
+    public function update()
+    {
+        return view('posts.update');
     }
 }
