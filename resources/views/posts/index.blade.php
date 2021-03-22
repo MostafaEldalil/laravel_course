@@ -21,7 +21,7 @@
         <th scope="row">{{ $post['id'] }}</th>
         <td>{{ $post['title'] }}</td>
         <td>{{ $post['posted_by'] }}</td>
-        <td>{{ $post['created_at'] }}</td>
+        <td>{{ $post->created_at->format('Y-m-d') }}</td>
         <td>
           <a href="{{ route('posts.show',['post' => $post['id']]) }}" class="btn btn-info" style="margin-bottom: 20px;">View</a>
           <a href="{{ route('posts.update', ['post' => $post['id']]) }}" class="btn btn-secondary" style="margin-bottom: 20px;">Edit</a>

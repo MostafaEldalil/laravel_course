@@ -2,27 +2,27 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Post;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
     public function index()
     {
-        $allPosts = [
-            ['id' => 1, 'title' => 'laravel', 'posted_by' => 'Mostafa', 'created_at' => '2021-03-20'],
-            ['id' => 2, 'title' => 'PHP', 'posted_by' => 'Mahmoud', 'created_at' => '2021-03-21'],
-            ['id' => 3, 'title' => 'JS', 'posted_by' => 'Ali', 'created_at' => '2021-03-22'],
-        ];
+
+        $postsFromDB = Post::all();
+        // dd($postsFromDB);
         return view('posts.index', [
-            'posts' => $allPosts
+            'posts' => $postsFromDB
         ]);
     }
 
     public function show($postId)
     {
-        $post = ['id' => 1, 'title' => 'laravel', 'description' => 'laravel is awsome framework', 'posted_by' => 'Mostafa', 'email' => 'mostafa@gmail.com', 'created_at' => '2021-03-20'];
+        // $post = ['id' => 1, 'title' => 'laravel', 'description' => 'laravel is awsome framework', 'posted_by' => 'Mostafa', 'email' => 'mostafa@gmail.com', 'created_at' => '2021-03-20'];
+        $singlePost = Post::find($postId);
         return view('posts.show', [
-            'post' => $post,
+            'post' => $singlePost,
         ]);
     }
 
